@@ -17,13 +17,13 @@ public class LCDNumbers
     public static void main(String args[])
     {
         NumbersRepo repo = new NumbersRepo();
-        int size = 2;
+        int size = 3;
         List<LCDNumber> numbers = new ArrayList<>();
-        numbers.add(repo.getNumberMatrix(1));
-//        numbers.add(repo.getNumberMatrix(2));
-//        numbers.add(repo.getNumberMatrix(3));
-//        numbers.add(repo.getNumberMatrix(4));
-//        numbers.add(repo.getNumberMatrix(5));
+        numbers.add(repo.getNumberMatrix(6));
+        numbers.add(repo.getNumberMatrix(7));
+        numbers.add(repo.getNumberMatrix(8));
+        numbers.add(repo.getNumberMatrix(9));
+        numbers.add(repo.getNumberMatrix(0));
         LCDScreenRenderer renderer = new LCDScreenRenderer();
         System.out.println(renderer.renderNumbers(numbers, size));
         System.exit(0);

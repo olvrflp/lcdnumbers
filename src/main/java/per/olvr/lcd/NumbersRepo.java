@@ -38,7 +38,7 @@ public class NumbersRepo
                 {false, true, false},
                 {false, false, true},
                 {false, true, false},
-                {true, false, true},
+                {true, false, false},
                 {false, true, false}
             };
         numberMasksCollection.put(2, new LCDNumber(two));
@@ -56,7 +56,7 @@ public class NumbersRepo
         Boolean[][] four =
             {
                 {false, false, false},
-                {true, false, false},
+                {true, false, true},
                 {false, true, false},
                 {false, false, true},
                 {false, false, false}

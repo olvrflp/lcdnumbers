@@ -26,25 +26,32 @@ public class LCDScreenRenderer
         int maskRowNumber = numbers.get(0).getLcdMatrixMask().length;
         for (int i = 0; i < maskRowNumber; i++)
         {
-            for (LCDNumber number : numbers)
+            if (i % 2 == 0)
             {
-                Boolean maskLine[] = number.getLcdMatrixMask()[i];
-                if (i % 2 == 0)
+                renderLine(screen, numbers, size, i);
+                screen.append("\n");
+            }
+            else
+            {
+                for (int j = 0; j < size; j++)
                 {
-                    renderNumberLine(screen, maskLine, size, true);
-                }
-                else
-                {
-                    for (int j = 0; j < size; j++)
-                    {
-                        renderNumberLine(screen, maskLine, size, false);
-                    }
+                    renderLine(screen, numbers, size, i);
+                    screen.append("\n");
                 }
             }
-            screen.append("\n");
         }
         screen.append("\n");
         return screen.toString();
+    }
+
+    private void renderLine(
+        final StringBuilder builder, final List<LCDNumber> numbers, final int size, final int line)
+    {
+        for (LCDNumber number : numbers)
+        {
+            Boolean maskLine[] = number.getLcdMatrixMask()[line];
+            renderNumberLine(builder, maskLine, size, line % 2 == 0);
+        }
     }
 
     private void renderNumberLine(
@@ -53,25 +60,19 @@ public class LCDScreenRenderer
         final int size,
         final boolean horizontal)
     {
+        char charToPrint = horizontal ? HORIZONTAL_CHARACTER : VERTICAL_CHARACTER;
         for (int i = 0; i < numberRow.length; i++)
         {
-            if (numberRow[i])
+            if (i % 2 == 0)
             {
-                if (horizontal)
-                {
-                    for (int j = 0; j < size; j++)
-                    {
-                        builder.append(HORIZONTAL_CHARACTER);
-                    }
-                }
-                else
-                {
-                    builder.append(VERTICAL_CHARACTER);
-                }
+                builder.append(numberRow[i] ? charToPrint : SEPARATOR);
             }
             else
             {
-                builder.append(SEPARATOR);
+                for (int j = 0; j < size; j++)
+                {
+                    builder.append(numberRow[i] ? charToPrint : SEPARATOR);
+                }
             }
         }
         builder.append(SEPARATOR);
