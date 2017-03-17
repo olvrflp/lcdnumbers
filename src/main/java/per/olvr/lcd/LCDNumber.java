@@ -1,5 +1,7 @@
 package per.olvr.lcd;
 
+import lombok.Getter;
+
 /**
  * Class that represent the LCD matrix for a number.
  *
@@ -7,6 +9,11 @@ package per.olvr.lcd;
  */
 public class LCDNumber
 {
+    /**
+     * Getter for the lcd matrix that represents this number instance.
+     * @return a {@link Boolean[][]} representation of the lcd matrix.
+     */
+    @Getter
     private final Boolean[][] lcdMatrixMask;
 
     /**
@@ -17,14 +24,5 @@ public class LCDNumber
     public LCDNumber(final Boolean[][] lcdMatrix)
     {
         this.lcdMatrixMask = lcdMatrix;
-    }
-
-    /**
-     * Getter for the lcd matrix that represents this number instance.
-     * @return a {@link Boolean[][]} representation of the lcd matrix.
-     */
-    public Boolean[][] getLcdMatrixMask()
-    {
-        return lcdMatrixMask;
     }
 }
