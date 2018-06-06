@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/olvrflp/lcdnumbers.svg?branch=master)](https://travis-ci.org/olvrflp/lcdnumbers)
+
 ## Building and testing
 This project includes a gradle wrapper that can be used to compile, test and publish jar.
 just execute `gradlew` and this will compile and run the unit tests.
