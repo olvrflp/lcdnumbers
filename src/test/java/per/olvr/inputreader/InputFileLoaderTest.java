@@ -20,7 +20,7 @@ import static org.junit.Assert.assertEquals;
 public class InputFileLoaderTest
 {
     @Rule
-    public ExpectedException exception= ExpectedException.none();
+    public ExpectedException exception = ExpectedException.none();
 
     private InputFileLoader testInstance;
     private File file;

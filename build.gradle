@@ -22,8 +22,6 @@ buildscript {
     }
 }
 
-apply plugin: 'com.github.johnrengelman.shadow'
-
 jar {
     manifest {
         attributes("Main-Class": "per.olvr.main.LCDNumbers")
