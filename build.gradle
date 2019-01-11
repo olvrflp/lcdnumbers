@@ -1,3 +1,7 @@
+plugins {
+    id 'net.ltgt.apt' version '0.20'
+}
+
 apply plugin: 'java'
 
 repositories {
@@ -5,21 +9,12 @@ repositories {
 }
 
 dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.4'
     compile 'com.google.guava:guava:21.+'
     compile 'org.apache.commons:commons-lang3:3.5'
-    compile 'org.projectlombok:lombok:1.16.+'
     testCompile 'junit:junit:4.12'
-    testCompile 'org.mockito:mockito-core:1.+'
-}
-
-buildscript {
-    repositories {
-        jcenter()
-    }
-
-    dependencies {
-        classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.3'
-    }
+    testCompile 'org.mockito:mockito-core:2.23.4'
+    annotationProcessor 'org.projectlombok:lombok:1.18.4'
 }
 
 jar {
